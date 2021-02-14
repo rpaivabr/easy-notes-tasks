@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">
+  <span>Easy Notes Tasks</span>
+  <span class="spacer"></span>
+  <ng-container *ngIf="isLogged$ | async">
+    <mat-icon
+      class="icon"
+      aria-hidden="false"
+      aria-label="Notes icon"
+      (click)="goTo('/notes')"
+      >post_add</mat-icon
+    >
+    <mat-icon
+      class="icon"
+      aria-hidden="false"
+      aria-label="Tasks icon"
+      (click)="goTo('/tasks')"
+      >check_box</mat-icon
+    >
+
+    <mat-icon
+      class="icon"
+      aria-hidden="false"
+      aria-label="Tasks icon"
+      (click)="signOut()"
+      >power_settings_new</mat-icon
+    >
+  </ng-container>
+</mat-toolbar>
