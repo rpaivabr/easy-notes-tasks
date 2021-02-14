@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "npm run config --production=false && ng serve",
-    "build": "npm run config --production=true && ng build",
+    "start": "npm run config && ng serve",
+    "build": "npm run config && ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
