@@ -1,0 +1,15 @@
+<section class="content">
+  <div class="flex-spaced">
+    <h2>My Notes</h2>
+    <button mat-button color="primary" (click)="openDialog()">Add note</button>
+  </div>
+  <div class="grid" *ngIf="notes$ | async as notes">
+    <app-note
+      *ngFor="let note of notes"
+      [title]="note.title"
+      [text]="note.text"
+      [color]="note.color"
+      (click)="openDialog(note)"
+    ></app-note>
+  </div>
+</section>

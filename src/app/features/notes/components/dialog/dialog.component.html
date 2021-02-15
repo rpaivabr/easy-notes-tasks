@@ -1,0 +1,41 @@
+<div mat-dialog-content>
+  <form [formGroup]="noteForm">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Text</mat-label>
+      <input matInput formControlName="text" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Choose an option</mat-label>
+      <mat-select formControlName="color">
+        <mat-option
+          *ngFor="let color of colors"
+          [value]="color.value"
+          [ngStyle]="{ background: Color[color.value] }"
+          >{{ color.text }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions class="flex-spaced">
+  <button
+    mat-raised-button
+    color="primary"
+    [mat-dialog-close]="noteForm.value"
+    cdkFocusInitial
+  >
+    Ok
+  </button>
+  <button
+    mat-raised-button
+    color="warn"
+    (click)="delete()"
+    *ngIf="noteForm.value.uid"
+  >
+    Delete
+  </button>
+</div>

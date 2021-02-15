@@ -1,0 +1,14 @@
+<div mat-dialog-content>
+  <form [formGroup]="taskForm">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" />
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions class="flex-spaced">
+  <button mat-raised-button color="primary" [mat-dialog-close]="taskForm.value" cdkFocusInitial>
+    Ok
+  </button>
+  <button mat-raised-button color="warn" (click)="delete()" *ngIf="taskForm.value.uid">Delete</button>
+</div>

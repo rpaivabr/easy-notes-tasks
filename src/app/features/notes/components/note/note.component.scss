@@ -1,0 +1,10 @@
+.card {
+  cursor: pointer;
+  &__title {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  &__text {
+    text-align: justify;
+  }
+}
