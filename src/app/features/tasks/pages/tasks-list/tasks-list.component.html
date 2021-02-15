@@ -3,7 +3,7 @@
     <h2>My Tasks</h2>
     <button mat-button color="primary" (click)="openDialog()">Add task</button>
   </div>
-  <mat-list class="list" role="list" *ngIf="tasks$ | async as tasks">
+  <mat-list class="list" role="list" *ngIf="tasks$ | async as tasks; else loading">
     <mat-list-item *ngFor="let task of tasks">
       <mat-checkbox [checked]="task.done" (click)="updateDone(task)">
       </mat-checkbox>
@@ -16,3 +16,7 @@
     </mat-list-item>
   </mat-list>
 </section>
+
+<ng-template #loading>
+    <app-loading></app-loading>
+</ng-template>

@@ -20,7 +20,6 @@ export class NotesListComponent implements OnInit {
   }
 
   openDialog (note = null): void {
-    console.log(note)
     const dialogRef = this.dialog.open(DialogNotesComponent, {
       width: '250px',
       data: { ...note }

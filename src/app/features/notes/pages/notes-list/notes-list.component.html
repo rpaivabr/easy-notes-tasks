@@ -3,7 +3,7 @@
     <h2>My Notes</h2>
     <button mat-button color="primary" (click)="openDialog()">Add note</button>
   </div>
-  <div class="grid" *ngIf="notes$ | async as notes">
+  <div class="grid" *ngIf="notes$ | async as notes; else loading">
     <app-note
       *ngFor="let note of notes"
       [title]="note.title"
@@ -13,3 +13,7 @@
     ></app-note>
   </div>
 </section>
+
+<ng-template #loading>
+    <app-loading></app-loading>
+</ng-template>

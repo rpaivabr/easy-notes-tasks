@@ -19,7 +19,6 @@ export class TasksListComponent implements OnInit {
 
   ngOnInit (): void {
     this.tasks$ = this.tasksService.getAllTasks()
-    this.tasks$.subscribe(tasks => console.log(tasks))
   }
 
   openDialog (task = null): void {

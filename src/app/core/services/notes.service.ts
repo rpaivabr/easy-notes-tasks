@@ -8,7 +8,7 @@ import { from, Observable, of } from 'rxjs'
 import { AuthService } from './auth.service'
 import * as firebase from 'firebase/app'
 import { Note } from 'src/app/shared/interface/note'
-import { switchMap } from 'rxjs/operators'
+import { switchMap, tap } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
