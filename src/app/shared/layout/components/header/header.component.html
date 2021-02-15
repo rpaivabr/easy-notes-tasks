@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <span>Easy Notes Tasks</span>
+  <span (click)="goTo('/')">Easy Notes Tasks</span>
   <span class="spacer"></span>
   <ng-container *ngIf="isLogged$ | async">
     <mat-icon

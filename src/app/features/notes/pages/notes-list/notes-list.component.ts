@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog'
 import { Observable } from 'rxjs'
 import { NotesService } from 'src/app/core/services/notes.service'
 import { Note } from 'src/app/shared/interface/note'
-import { DialogComponent } from '../../components/dialog/dialog.component'
+import { DialogNotesComponent } from '../../components/dialog-notes/dialog-notes.component'
 
 @Component({
   selector: 'app-notes-list',
@@ -21,14 +21,14 @@ export class NotesListComponent implements OnInit {
 
   openDialog (note = null): void {
     console.log(note)
-    const dialogRef = this.dialog.open(DialogComponent, {
+    const dialogRef = this.dialog.open(DialogNotesComponent, {
       width: '250px',
       data: { ...note }
     })
 
-    dialogRef.afterClosed().subscribe((note: Note) => {
-      if (note) {
-        this.addNote(note)
+    dialogRef.afterClosed().subscribe((n: Note) => {
+      if (n) {
+        this.addNote(n)
       }
     })
   }

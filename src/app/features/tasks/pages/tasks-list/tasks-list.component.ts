@@ -3,8 +3,8 @@ import { MatDialog } from '@angular/material/dialog'
 import { MatMenuTrigger } from '@angular/material/menu'
 import { Observable } from 'rxjs'
 import { TasksService } from 'src/app/core/services/tasks.service'
-import { DialogComponent } from 'src/app/features/tasks/components/dialog/dialog.component'
 import { Task } from 'src/app/shared/interface/task'
+import { DialogTasksComponent } from '../../components/dialog-tasks/dialog-tasks.component'
 
 @Component({
   selector: 'app-tasks-list',
@@ -23,15 +23,14 @@ export class TasksListComponent implements OnInit {
   }
 
   openDialog (task = null): void {
-    console.log(task)
-    const dialogRef = this.dialog.open(DialogComponent, {
+    const dialogRef = this.dialog.open(DialogTasksComponent, {
       width: '250px',
       data: { ...task }
     })
 
-    dialogRef.afterClosed().subscribe((task: Task) => {
-      if (task) {
-        this.addTask(task)
+    dialogRef.afterClosed().subscribe((t: Task) => {
+      if (t) {
+        this.addTask(t)
       }
     })
   }

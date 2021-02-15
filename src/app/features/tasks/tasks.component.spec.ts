@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 import { TasksComponent } from './tasks.component';
 

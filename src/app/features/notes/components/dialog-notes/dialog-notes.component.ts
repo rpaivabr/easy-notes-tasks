@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core'
+import { Component, Inject, Optional } from '@angular/core'
 import { FormControl, FormGroup } from '@angular/forms'
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 import { NotesService } from 'src/app/core/services/notes.service';
@@ -6,11 +6,11 @@ import { Color } from 'src/app/shared/enums/color.enum';
 import { Note } from 'src/app/shared/interface/note';
 
 @Component({
-  selector: 'app-dialog',
-  templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.scss']
+  selector: 'app-dialog-notes',
+  templateUrl: './dialog-notes.component.html',
+  styleUrls: ['./dialog-notes.component.scss']
 })
-export class DialogComponent {
+export class DialogNotesComponent {
   Color = Color;
   noteForm!: FormGroup;
   colors = [
@@ -21,15 +21,9 @@ export class DialogComponent {
     { value: 'blue', text: 'Blue' },
   ]
 
-  // grey = '#CEE2D7',
-  // green = '#73CAC4',
-  // yellow = '#FFF9A5',
-  // pink = '#F9B8BC',
-  // blue = '#B0CDEB',
-
   constructor (
     private notesService: NotesService,
-    public dialogRef: MatDialogRef<DialogComponent>,
+    public dialogRef: MatDialogRef<DialogNotesComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Note
   ) {
     const { uid, title, text, color } = data;

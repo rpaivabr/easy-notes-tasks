@@ -5,16 +5,16 @@ import { TasksService } from 'src/app/core/services/tasks.service';
 import { Note } from 'src/app/shared/interface/note';
 
 @Component({
-  selector: 'app-dialog',
-  templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.scss']
+  selector: 'app-dialog-tasks',
+  templateUrl: './dialog-tasks.component.html',
+  styleUrls: ['./dialog-tasks.component.scss']
 })
-export class DialogComponent {
+export class DialogTasksComponent {
   taskForm!: FormGroup;
 
   constructor (
     private tasksService: TasksService,
-    public dialogRef: MatDialogRef<DialogComponent>,
+    public dialogRef: MatDialogRef<DialogTasksComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Note
   ) {
     const { uid, title } = data;
